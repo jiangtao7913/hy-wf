@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: prod
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    initialSize: 3
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: true
+    testOnReturn: true
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,slf4j
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=10000
+
+
+
+jwt.secret: f4e2e52034348f86b67cde581c0f9eb5
+jwt.access_expire: 604800
+jwt.refresh_expire: 86400
+jwt.header: token
+
+sn.uid.maxLo: 100
+sn.uid.radix: 10000
+sn.order.maxLo: 100
+sn.order.prefix: O{.now?string('yyyyMMdd')}
+sn.money.prefix: M{.now?string('yyyyMMdd')}
+
+sms.url: http://smssh1.253.com/msg/
+sms.account: N7442033
+sms.password: FjAZTRz3ts7321

@@ -1,0 +1,29 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /wf-api
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/renren_security?characterEncoding=utf-8&serverTimezone=UTC
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6479
+    password: E18bf516aaff40bb92c1
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    timeout: 6000ms
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    com.hy: DEBUG

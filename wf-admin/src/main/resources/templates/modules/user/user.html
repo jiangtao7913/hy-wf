@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APP用户列表</title>
+<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+
+		<div class="grid-btn">
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.name" @keyup.enter="query" placeholder="用户名">
+			</div>
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.hardwareKey"  @keyup.enter="query" placeholder="硬件key">
+			</div>
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.id"  @keyup.enter="query" placeholder="id">
+			</div>
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.uid"  @keyup.enter="query" placeholder="uid">
+			</div>
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.sign"  @keyup.enter="query" placeholder="关键字">
+			</div>
+
+			<a class="btn btn-default" @click="query">查询</a>
+			<#if shiro.hasPermission("user:save")>
+			<a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("user:update")>
+			<a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("user:delete")>
+			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+	<div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-2 control-label">用户名</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.name" placeholder="用户名"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">头像</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.icon" placeholder="头像"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">性别</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.sex" placeholder="性别"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">登录设备</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.hardwareKey" placeholder="登录设备"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">账号类型</div>
+				<label class="radio-inline">
+					<input type="radio" disabled="disabled" name="accountType" value="0" v-model="user.accountType"/> 微信
+				</label>
+				<label class="radio-inline">
+					<input type="radio" disabled="disabled" name="accountType" value="1" v-model="user.accountType"/> QQ
+				</label>
+				<label class="radio-inline">
+					<input type="radio" disabled="disabled" name="accountType" value="2" v-model="user.accountType"/> 手机
+				</label>
+				<label class="radio-inline">
+					<input type="radio" disabled="disabled" checked="checked" name="accountType" value="3" v-model="user.accountType"/> 虚拟
+				</label>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">关键字</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.sign" placeholder="关键字"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">充值金额</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.rechargeTotal" placeholder="充值金额"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">余额</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="user.balance" placeholder="余额"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div>
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<script src="${request.contextPath}/statics/js/modules/user/user.js?_${.now?long}"></script>
+</body>
+</html>

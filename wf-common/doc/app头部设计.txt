@@ -1,0 +1,29 @@
+refreshToken:临时令牌
+accessToken:固定令牌
+deviceModel:设备机型
+hardwareKey:设备硬件key
+version:apk版本
+source:apk来源
+timestamp:时间戳
+appType:app应用名称
+codeName:渠道名称
+type:Android|IOS
+
+
+token续签设计：
+    refreshToken:refreshToken过期时间为一天
+    accessToken:accessToken过期时间为7天
+
+
+{
+	"accessToken": 1,
+	"refreshToken": 1,
+	"deviceModel": 1,
+	"hardwareKey": 10,
+	"version": 1,
+	"source": 1,
+	"timestamp": 1,
+	"appType": 1,
+	"type": 1,
+	"codeName": 1
+}

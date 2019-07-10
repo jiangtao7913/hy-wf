@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APP用户列表</title>
+<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+
+		<div class="grid-btn">
+			<!-- 状态 -->
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.hardwareKey" @keyup.enter="query" placeholder="硬件Key">
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+
+</div>
+
+
+<script src="${request.contextPath}/statics/js/modules/user/function_use.js?_${.now?long}"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>APP用户列表</title>
+<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+
+		<div class="grid-btn">
+			<!-- 状态 -->
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<select class="form-control select2" v-model="q.type">
+					<option v-for="(val, key, index) in logTypeMap" :value="key">{{val.value}}</option>
+				</select>
+			</div>
+			<a class="btn btn-default" @click="query">查询</a>
+
+			<#if shiro.hasPermission("log:delete")>
+				<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+
+</div>
+
+
+<script src="${request.contextPath}/statics/js/modules/common/log.js?_${.now?long}"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+<title>APP用户列表</title>
+<#include "/header.html">
+<script src="${request.contextPath}/statics/libs/ajaxupload.js"></script>
+</head>
+<body>
+<div id="rrapp" v-cloak>
+	<div v-show="showList">
+
+		<div class="grid-btn">
+			<div class="form-group col-sm-2" style="width: 10%;">
+				<input type="text" class="form-control" v-model="q.type" @keyup.enter="query" placeholder="标题">
+			</div>
+			<!--<div class="form-group col-sm-2" style="width: 10%;">-->
+				<!--<input type="text" class="form-control" v-model="q.hardwareKey"  @keyup.enter="query" placeholder="硬件key">-->
+			<!--</div>-->
+			<!--<div class="form-group col-sm-2" style="width: 10%;">-->
+				<!--<input type="text" class="form-control" v-model="q.id"  @keyup.enter="query" placeholder="id">-->
+			<!--</div>-->
+			<!--<div class="form-group col-sm-2" style="width: 10%;">-->
+				<!--<input type="text" class="form-control" v-model="q.uid"  @keyup.enter="query" placeholder="uid">-->
+			<!--</div>-->
+			<!--<div class="form-group col-sm-2" style="width: 10%;">-->
+				<!--<input type="text" class="form-control" v-model="q.sign"  @keyup.enter="query" placeholder="关键字">-->
+			<!--</div>-->
+
+			<a class="btn btn-default" @click="query">查询</a>
+			<#if shiro.hasPermission("vip:save")>
+			<a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("vip:update")>
+			<a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("vip:delete")>
+			<a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+		</div>
+	    <table id="jqGrid"></table>
+	    <div id="jqGridPager"></div>
+    </div>
+
+	<div v-show="!showList" class="panel panel-default">
+		<div class="panel-heading">{{title}}</div>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<div class="col-sm-2 control-label">标题</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="ff.title" placeholder="标题"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">价格</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="ff.price" placeholder="价格"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label">类型</div>
+				<label class="radio-inline">
+					<input type="radio" name="type" value="0" v-model="ff.type"/> 月会员
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="type" value="1" v-model="ff.type"/> 年会员
+				</label>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">描述</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="ff.meno" placeholder="描述"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-2 control-label">appType</div>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" v-model="ff.appType" placeholder="appType"/>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-sm-2 control-label"></div>
+				<input type="button" class="btn btn-primary" @click="saveOrUpdate" value="确定"/>
+				&nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+<script src="${request.contextPath}/statics/js/modules/order/vip.js?_${.now?long}"></script>
+</body>
+</html>

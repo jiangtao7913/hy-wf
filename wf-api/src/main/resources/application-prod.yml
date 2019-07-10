@@ -1,0 +1,32 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /wf-api
+  tomcat:
+    max-threads: 2000
+    min-spare-threads: 30
+
+spring:
+  datasource:
+    username: root
+    password: A8b6e8dbc48f48759b32986d5cec810a
+    url: jdbc:mysql://120.79.81.49:3306/wsks?characterEncoding=utf-8&serverTimezone=UTC
+  redis:
+    database: 1
+    host: 120.79.81.49
+    port: 6479
+    password: E18bf516aaff40bb92c1
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1ms
+        min-idle: 0
+    timeout: 6000ms
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: DEBUG
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    com.hy: DEBUG
