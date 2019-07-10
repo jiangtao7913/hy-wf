@@ -5,14 +5,14 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/renren_security?characterEncoding=utf-8&serverTimezone=UTC
+    username:
+    password:
+    url:
   redis:
     database: 1
-    host: 127.0.0.1
-    port: 6479
-    password: E18bf516aaff40bb92c1
+    host:
+    port:
+    password:
     jedis:
       pool:
         max-active: 8

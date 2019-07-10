@@ -8,14 +8,14 @@ server:
 
 spring:
   datasource:
-    username: root
-    password: A8b6e8dbc48f48759b32986d5cec810a
-    url: jdbc:mysql://120.79.81.49:3306/wsks?characterEncoding=utf-8&serverTimezone=UTC
+    username:
+    password:
+    url:
   redis:
     database: 1
-    host: 120.79.81.49
-    port: 6479
-    password: E18bf516aaff40bb92c1
+    host:
+    port:
+    password:
     jedis:
       pool:
         max-active: 8
