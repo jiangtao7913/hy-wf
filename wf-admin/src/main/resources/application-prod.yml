@@ -27,13 +27,13 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     druid:
       first:  #数据源1
-        url: jdbc:mysql://120.79.81.49:3306/wsks?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        username: root
-        password: A8b6e8dbc48f48759b32986d5cec810a
+        url:
+        username:
+        password:
       second:  #数据源2
-        url: jdbc:mysql://120.79.81.49:3306/wsks?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        username: root
-        password: A8b6e8dbc48f48759b32986d5cec810a
+        url:
+        username:
+        password:
       initial-size: 100
       max-active: 2000
       min-idle: 100

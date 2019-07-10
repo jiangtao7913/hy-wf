@@ -11,9 +11,9 @@ server:
 spring:
   redis:
     database: 1
-    host: 127.0.0.1
-    port: 6479
-    password: E18bf516aaff40bb92c1    # 密码（默认为空）
+    host:
+    port:
+    password:    # 密码（默认为空）
     timeout: 6000ms  # 连接超时时长（毫秒）
     jedis:
       pool:
@@ -27,13 +27,13 @@ spring:
     driverClassName: com.mysql.jdbc.Driver
     druid:
       first:  #数据源1
-        url: jdbc:mysql://localhost:3306/renren_security?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        username: root
-        password: 123456
+        url:
+        username:
+        password:
       second:  #数据源2
-        url: jdbc:mysql://10.10.168.18:3306/renren_security?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-        username: root
-        password: 123456
+        url:
+        username:
+        password:
       initial-size: 10
       max-active: 100
       min-idle: 10
