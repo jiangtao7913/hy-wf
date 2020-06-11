@@ -34,7 +34,7 @@
         <guava.version>20.0</guava.version>
         <commons.version>2.6</commons.version>
         <netty.version>4.1.21.Final</netty.version>
-        <commons-beanutils>1.8.3</commons-beanutils>
+        <commons-beanutils>1.9.2</commons-beanutils>
         <httpclient>4.5.3</httpclient>
         <alipay-sdk-java>3.0.0</alipay-sdk-java>
         <commons-collections>3.2.1</commons-collections>
