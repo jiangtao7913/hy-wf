@@ -27,7 +27,7 @@
         <swagger2.version>2.7.0</swagger2.version>
         <swagger-ui.version>2.7.0</swagger-ui.version>
         <lombok.version>1.16.20</lombok.version>
-        <fastjson.version>1.2.50</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <druid.version>1.1.12</druid.version>
         <alibaba.version>1.1.10</alibaba.version>
         <jwt.version>0.7.0</jwt.version>
